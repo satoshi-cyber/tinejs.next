@@ -1,4 +1,4 @@
-## tine
+## tinejs
 
 edge framework for nextJs
 
