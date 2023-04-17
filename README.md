@@ -7,8 +7,8 @@ edge framework for nextJs
 useCases/hello/index.ts
 ```typescript
 import { z } from 'zod';
-import { tineInput, tineVar } from 'tine';
-import payload from 'tine-actions/payload';
+import { tineInput, tineVar } from 'tinejs';
+import payload from 'tinejs-actions/payload';
 
 const schema = z.object({ name: z.string().nullable().optional() });
 
