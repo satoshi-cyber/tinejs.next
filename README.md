@@ -1,9 +1,8 @@
-#tine
+## tine
+
 edge framework for nextJs
 
-
-
-example: 
+# example: 
 
 useCases/hello/index.ts
 ```typescript
