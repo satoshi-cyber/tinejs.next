@@ -5,7 +5,7 @@ export const resolveTineVar = (ctx: TineCtx, tineVar: TineVar<any>) =>
   tineVar.__value(ctx);
 
 export const resolvePayload = async <T>(
-  ctx: Map<string, any>,
+  ctx: Map<string, unknown>,
   payload: TinePayload<T>,
 ): Promise<T> => {
   if (isTineVar(payload)) {
