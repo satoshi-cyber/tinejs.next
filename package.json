@@ -1,6 +1,6 @@
 {
   "name": "tinejs.next",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "tinejs - nextjs hooks",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,10 +17,12 @@
     "url": "https://github.com/satoshi-cyber/tinejs.next/issues"
   },
   "homepage": "https://github.com/satoshi-cyber/tine#readme",
-  "dependencies": {
-    "tinejs": "^0.0.1"
-  },
   "devDependencies": {
     "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "next": "^13.4.3",
+    "swr": "^2.1.5",
+    "tinejs": "^0.0.26"
   }
 }

@@ -1,16 +1,26 @@
-import { TineAction, TineCtx } from 'tinejs';
-import { cookies, headers } from 'next/headers';
+import { TineAction, TineActionWithInput, TineCtx } from 'tinejs';
+import { unstable_serialize } from 'swr';
 
-export function useUseCase<T>(
-  useCase: TineAction<T>,
+export async function useSWRProps<T, I>(
+  useCase: TineActionWithInput<T, I> | TineAction<T>,
+  input: I,
   options?: {
     ctx?: TineCtx;
   },
 ) {
-  const ctx = options?.ctx || new Map();
+  const { ctx = new Map() } = options ?? {}
 
-  ctx.set('headers', headers());
-  ctx.set('cookies', cookies());
+  if('input' in useCase){
+    const data = await useCase.input(input).run(ctx);
 
-  return useCase.run({ ctx });
+    return {
+      [unstable_serialize([useCase.input(input).name, input])]: data
+    }
+  }
+
+  const data = await useCase.run(ctx);
+
+  return {
+    [unstable_serialize(useCase.name)]: data
+  }
 }
